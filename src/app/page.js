@@ -1,113 +1,131 @@
-import Image from 'next/image'
+"use client";
+import Image from "next/image";
+// react import
+import React, { useState } from "react";
+import generator from "generate-password-ts";
+// import the CopyToClipboard component
+import { CopyToClipboard } from "react-copy-to-clipboard";
+// imports from Material UI
+import { TextField, Button, MuiAlert, Snackbar } from "@mui/material";
 
 export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    // state to show the snack bar
+    const [copyState, setcopyState] = useState(false);
+    // set password length
+    const [length, setLength] = useState(10);
+    // state for text in the text field
+    const [text, setText] = useState("");
+    const [isLowerCase, setIsLowerCase] = useState(false);
+    const [isUpperCase, setIsUpperCase] = useState(false);
+    const [isNumbers, setIsNumbers] = useState(true);
+    const [isSymbols, setIsSymbols] = useState(false);
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+    const generatePassword = () => {
+        if (!isLowerCase && !isUpperCase && !isNumbers && !isSymbols) {
+            return console.log("make one selection");
+        }
+        const pwd = generator.generate({
+            length: length,
+            lowercase: isLowerCase,
+            uppercase: isUpperCase,
+            numbers: isNumbers,
+            symbols: isSymbols,
+        });
+        setText(pwd);
+    };
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+    return (
+        <main className="flex flex-col items-center justify-between p-4 max-w-[33.75rem]">
+            <h1>Password generator</h1>
+            <div className="container">
+                <TextField
+                    type="text"
+                    className="bg-white"
+                    value={text}
+                    id="password"
+                    variant="outlined"
+                    label="text"
+                    placeholder="Type some text here"
+                    InputProps={{
+                        readOnly: true,
+                    }}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <CopyToClipboard text={text} onCopy={() => setcopyState(true)}>
+                    {/* single child to which event is applied*/}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+                    <div className="copy-area">
+                        {/*button to copy text */}
+                        <Button variant="contained">Click to Copy</Button>
+                    </div>
+                </CopyToClipboard>
+            </div>
+            <div className="settings">
+                <div className="grid grid-cols-6">
+                    <label htmlFor="length" className="col-span-5">
+                        Character length
+                    </label>
+                    <span aria-live="polite" className="justify-self-end">
+                        {length}
+                    </span>
+                    <input
+                        type="range"
+                        id="length"
+                        className="col-span-6"
+                        name="length"
+                        min={4}
+                        max={20}
+                        value={length}
+                        onChange={(e) => setLength(e.target.value)}
+                    />
+                </div>
+                <fieldset>
+                    <legend className="hidden">Select character types</legend>
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="uppercase"
+                            name="uppercase"
+                            checked={isUpperCase}
+                            onChange={() => setIsUpperCase(!isUpperCase)}
+                        />
+                        <label htmlFor="uppercase">{`Uppercase letters ${isUpperCase}`}</label>
+                    </div>
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="lowercase"
+                            name="lowercase"
+                            checked={isLowerCase}
+                            onChange={() => setIsLowerCase(!isLowerCase)}
+                        />
+                        <label htmlFor="lowercase">{`Lowercase letters ${isLowerCase}`}</label>
+                    </div>
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="numbers"
+                            name="numbers"
+                            defaultChecked
+                            onChange={() => setIsNumbers(!isNumbers)}
+                        />
+                        <label htmlFor="numbers">{`Numbers ${isNumbers}`}</label>
+                    </div>
+                    <div>
+                        <input
+                            type="checkbox"
+                            id="symbols"
+                            name="symbols"
+                            checked={isSymbols}
+                            onChange={() => setIsSymbols(!isSymbols)}
+                        />
+                        <label htmlFor="symbols">{`Symbols ${isSymbols}`}</label>
+                    </div>
+                </fieldset>
+                <Button variant="contained" onClick={generatePassword}>
+                    Generate
+                </Button>
+            </div>
+        </main>
+    );
 }
