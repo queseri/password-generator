@@ -3,7 +3,8 @@ import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import generator from "generate-password-ts";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { TextField, Button, MuiAlert, Snackbar } from "@mui/material";
+import { TextField, Button, Slider } from "@mui/material";
+import AlertMessage from "@/components/AlertMessage";
 
 export default function Home() {
     const initialState = {
@@ -40,6 +41,18 @@ export default function Home() {
         setText(pwd);
     };
 
+    const onCopy = () => {
+        if (text.length === 0) {
+            setcopyState(false);
+        } else {
+            setcopyState(true);
+        }
+    };
+
+    const onClose = () => {
+        setcopyState(false);
+    };
+
     const onChange = (evt) => {
         setLength(evt.target.value);
         if (evt.target.value < 6) {
@@ -72,22 +85,29 @@ export default function Home() {
                         variant="outlined"
                         label="Password"
                         aria-live="polite"
+                        tabIndex="-1"
+                        disabled
                         InputProps={{
                             readOnly: true,
                         }}
                         InputLabelProps={{
                             style: { color: "white" },
                         }}
-                        sx={{ input: { color: "white" } }}
+                        sx={{
+                            input: { color: "white" },
+                            "& .Mui-disabled": {
+                                color: "white",
+                                "-webkit-text-fill-color": "white",
+                            },
+                        }}
                         onChange={(e) => setText(e.target.value)}
                     />
                     <CopyToClipboard
                         text={text}
-                        onCopy={() => setcopyState(true)}
+                        onCopy={onCopy}
                         className="h-full flex justify-center items-center !absolute top-0 right-0 copy-container"
                     >
                         {/* single child to which event is applied*/}
-
                         <Button variant="contained">
                             {" "}
                             <Image
@@ -99,6 +119,15 @@ export default function Home() {
                             <span className="sr-only">Click to Copy</span>
                         </Button>
                     </CopyToClipboard>
+                    <AlertMessage
+                        open={copyState}
+                        onClose={onClose}
+                        text={
+                            copyState
+                                ? "Copied text"
+                                : "Generate password first"
+                        }
+                    />
                 </div>
                 <div className="w-full bg-[--dark-grey] flex flex-col gap-8 p-4">
                     <div className="grid grid-cols-6 gap-8">
@@ -108,16 +137,37 @@ export default function Home() {
                         <span aria-live="polite" className="justify-self-end">
                             {length}
                         </span>
-                        <input
-                            type="range"
-                            id="length"
-                            aria-describedby="strength"
-                            className="col-span-6 appearance-none h-2 bg-[--transparent] cursor-pointer accent-[--neon-green]"
-                            name="length"
-                            min={4}
-                            max={24}
+                        <Slider
                             value={length}
                             onChange={onChange}
+                            min={4}
+                            max={24}
+                            className="col-span-6"
+                            aria-label="Character length"
+                            marks={true}
+                            size="medium"
+                            sx={{
+                                color: "hsla(127, 100%, 82%, 1)",
+                                height: 8,
+                                cursor: "pointer",
+                                "& .MuiSlider-track": {
+                                    border: "none",
+                                },
+                                "& .MuiSlider-thumb": {
+                                    height: 24,
+                                    width: 24,
+                                    backgroundColor: "#fff",
+                                    border: "2px solid currentColor",
+                                    "&:focus, &:hover, &.Mui-active, &.Mui-focusVisible":
+                                        {
+                                            boxShadow: "inherit",
+                                            border: "2px solid hsla(0, 90%, 63%, 1)",
+                                        },
+                                    "&:before": {
+                                        display: "none",
+                                    },
+                                },
+                            }}
                         />
                     </div>
                     <fieldset className="flex flex-col gap-2">
