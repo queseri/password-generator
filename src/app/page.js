@@ -84,7 +84,7 @@ export default function Home() {
                     <CopyToClipboard
                         text={text}
                         onCopy={() => setcopyState(true)}
-                        className="absolute top-0 right-0 h-full flex justify-center items-center"
+                        className="h-full flex justify-center items-center absolute top-0 right-0"
                     >
                         {/* single child to which event is applied*/}
 
