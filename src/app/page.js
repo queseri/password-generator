@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import generator from "generate-password-ts";
 import TextContainer from "@/components/TextContainer";
 import FormControls from "@/components/FormControls";
-import { Button, Checkbox, FormControlLabel } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import AlertMessage from "@/components/AlertMessage";
 import CopyToClipboardText from "@/components/CopyToClipboardText";
 import SliderContainer from "@/components/SliderContainer";
@@ -46,9 +46,9 @@ export default function Home() {
     const onCopy = () => {
         console.log(text.length);
         if (text.length === 0) {
-            setcopyState(false);
+            return setcopyState(false);
         } else {
-            setcopyState(true);
+            return setcopyState(true);
         }
     };
 
@@ -78,7 +78,11 @@ export default function Home() {
     };
 
     return (
-        <main className="flex flex-col items-center justify-between m-4 w-full max-w-[33.75rem]">
+        <Box
+            component={"form"}
+            noValidate
+            className="flex flex-col items-center justify-between m-4 w-full max-w-[33.75rem]"
+        >
             <h1 className="text-[--grey] font-bold text-base mb-4">
                 Password generator
             </h1>
@@ -200,6 +204,6 @@ export default function Home() {
                     </Button>
                 </div>
             </div>
-        </main>
+        </Box>
     );
 }

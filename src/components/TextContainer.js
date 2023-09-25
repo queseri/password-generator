@@ -13,6 +13,8 @@ function TextContainer({ text, updateText }) {
                 label="Password"
                 aria-live="polite"
                 tabIndex="-1"
+               // helperText="Generate password first"
+               // error
                 //disabled
                 InputProps={{
                     readOnly: true,
@@ -27,7 +29,7 @@ function TextContainer({ text, updateText }) {
                     },
                 }}
                 onChange={updateText}
-            />
+            />            
         </>
     );
 }

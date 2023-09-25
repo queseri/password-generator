@@ -1,6 +1,6 @@
 # Frontend Mentor - Password generator app solution
 
-This is a solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is my solution to the [Password generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/password-generator-app-Mr8CLycqjh). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -16,9 +16,10 @@ This is a solution to the [Password generator app challenge on Frontend Mentor](
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
-
 ## Overview
+
+I took this challenge to practice using the ReactJs Framework NextJs. I used the NextJs docs by mainly following the
+following tutorial [Create your nextjs app](https://nextjs.org/learn/basics/create-nextjs-app)
 
 ### The challenge
 
@@ -32,27 +33,21 @@ Users should be able to:
 
 ### Screenshot
 
-![Huawei h30 PRO](src/assets/huaweih30pro.png)
-![Ipad](src/assets/ipad.png)
-![Iphone 5](src/assets/iphone5.png)
-![Iphone 12](src/assets/iphone12.png)
-![Macbook Air](src/assets/mac.png)
-![Microsoft Surface suo](src/assets/microsoft-duo.png)
-![Mobile](src/assets/mobile.png)
-![Oppo Find X3 PRO](src/assets/oppo.png)
-![Samsung Galaxy s20](src/assets/s20.png)
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+The screenshots where created using [Mobile simulator extension](https://chrome.google.com/webstore/detail/simulateur-mobile/ckejmhbmlajgoklhgbapkiccekfoccmk?hl=en-US)
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+- Huawei ![Huawei h30 PRO](src/assets/huaweih30pro.png)
+- Mobile ![Mobile](src/assets/mobile.png)
+- Oppo ![Oppo Find X3 PRO](src/assets/oppo.png)
+- Samsung ![Samsung Galaxy s20](src/assets/s20.png)
+- Ipad ![Ipad](src/assets/ipad.png)
+- Iphone 5 ![Iphone 5](src/assets/iphone5.png)
+- Iphone 12 ![Iphone 12](src/assets/iphone12.png)
+- Iphone Macbook ![Macbook Air](src/assets/mac.png)
+- Microsoft ![Microsoft Surface duo](src/assets/microsoft-duo.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Password generator app](https://password-generator-queseri.vercel.app/)
 
 ## My process
 
@@ -65,9 +60,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- [TailwindCSS](https://tailwindcss.com/)
+- [Matrial-ui](https://mui.com/)
 
 ### What I learned
 
