@@ -2,8 +2,8 @@
 import React, { useState } from "react";
 import generator from "generate-password-ts";
 import TextContainer from "@/components/TextContainer";
-
-import { Button,  Checkbox, FormControlLabel } from "@mui/material";
+import FormControls from "@/components/FormControls";
+import { Button, Checkbox, FormControlLabel } from "@mui/material";
 import AlertMessage from "@/components/AlertMessage";
 import CopyToClipboardText from "@/components/CopyToClipboardText";
 import SliderContainer from "@/components/SliderContainer";
@@ -107,83 +107,32 @@ export default function Home() {
                         <legend className="hidden">
                             Select character types
                         </legend>
-                        <FormControlLabel
-                            className="flex justify-start gap-4"
-                            control={
-                                <Checkbox
-                                    id="uppercase"
-                                    name="uppercase"
-                                    checked={isUpperCase}
-                                    onChange={() =>
-                                        setIsUpperCase(!isUpperCase)
-                                    }
-                                    sx={{
-                                        color: "hsla(127, 100%, 82%, 1)",
-                                        "&.Mui-checked": {
-                                            color: "hsla(127, 100%, 82%, 1)",
-                                        },
-                                    }}
-                                />
-                            }
+                        <FormControls
+                            id="uppercase"
+                            name="uppercase"
+                            checked={isUpperCase}
+                            onChange={() => setIsUpperCase(!isUpperCase)}
                             label="Include Uppercase Letters"
                         />
-
-                        <FormControlLabel
-                            className="flex justify-start gap-4"
-                            control={
-                                <Checkbox
-                                    id="lowercase"
-                                    name="lowercase"
-                                    checked={isLowerCase}
-                                    onChange={() =>
-                                        setIsLowerCase(!isLowerCase)
-                                    }
-                                    sx={{
-                                        color: "hsla(127, 100%, 82%, 1)",
-                                        "&.Mui-checked": {
-                                            color: "hsla(127, 100%, 82%, 1)",
-                                        },
-                                    }}
-                                />
-                            }
+                        <FormControls
+                            id="lowercase"
+                            name="lowercase"
+                            checked={isLowerCase}
+                            onChange={() => setIsLowerCase(!isLowerCase)}
                             label="Include Lowercase Letters"
                         />
-
-                        <FormControlLabel
-                            className="flex justify-start gap-4"
-                            control={
-                                <Checkbox
-                                    id="numbers"
-                                    name="numbers"
-                                    defaultChecked
-                                    onChange={() => setIsNumbers(!isNumbers)}
-                                    sx={{
-                                        color: "hsla(127, 100%, 82%, 1)",
-                                        "&.Mui-checked": {
-                                            color: "hsla(127, 100%, 82%, 1)",
-                                        },
-                                    }}
-                                />
-                            }
+                        <FormControls
+                            id="numbers"
+                            name="numbers"
+                            checked={isNumbers}
+                            onChange={() => setIsNumbers(!isNumbers)}
                             label="Include Numbers"
                         />
-
-                        <FormControlLabel
-                            className="flex justify-start gap-4"
-                            control={
-                                <Checkbox
-                                    id="symbols"
-                                    name="symbols"
-                                    checked={isSymbols}
-                                    onChange={() => setIsSymbols(!isSymbols)}
-                                    sx={{
-                                        color: "hsla(127, 100%, 82%, 1)",
-                                        "&.Mui-checked": {
-                                            color: "hsla(127, 100%, 82%, 1)",
-                                        },
-                                    }}
-                                />
-                            }
+                        <FormControls
+                            id="symbols"
+                            name="symbols"
+                            checked={isSymbols}
+                            onChange={() => setIsSymbols(!isSymbols)}
                             label="Include Symbols"
                         />
                     </fieldset>
