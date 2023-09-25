@@ -34,3 +34,12 @@ body {
     min-height: 100vh;
 }
 
+button,
+label,
+input,
+p,
+h1,
+h2,
+span {
+   font-family: var(--font-jet-brains-mono); 
+}
