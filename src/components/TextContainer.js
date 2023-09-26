@@ -13,13 +13,18 @@ function TextContainer({ text, updateText }) {
                 label="Password"
                 aria-live="polite"
                 tabIndex="-1"
-                helperText={text.length === 0 ? "Generate password first" : ""}
-                error={text.length === 0}
+                //  helperText={text.length === 0 && "Generate password first"}
+                //  error={text.length === 0}
                 InputProps={{
                     readOnly: true,
                 }}
                 InputLabelProps={{
-                    style: { color: "white" },
+                    style: {
+                        color:
+                            text.length === 0
+                                ? "hsla(252, 9%, 53%, 1)"
+                                : "white",
+                    },
                 }}
                 sx={{
                     input: { color: "white" },

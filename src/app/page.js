@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Image from "next/image";
 import generator from "generate-password-ts";
 import TextContainer from "@/components/TextContainer";
 import FormControls from "@/components/FormControls";
@@ -113,10 +114,6 @@ export default function Home() {
             : "bg-[--neon-green] border-[--neon-green]";
     };
 
-    useEffect(() => {
-        console.log(generatePasswordError);
-    }, [generatePasswordError]);
-
     return (
         <Box
             component={"form"}
@@ -147,7 +144,7 @@ export default function Home() {
 
                         <SliderContainer length={length} onChange={onChange} />
                     </div>
-                    <fieldset className="flex flex-col gap-2">
+                    <fieldset className="flex flex-col gap-2 relative">
                         <legend className="hidden">
                             Select character types
                         </legend>
@@ -179,18 +176,16 @@ export default function Home() {
                             onChange={() => setIsSymbols(!isSymbols)}
                             label="Include Symbols"
                         />
-                        <span
-                            id="hidden-text"
-                            className={`text-[--red] ${
-                                !generatePasswordError
-                                    ? "hidden"
-                                    : "inline-block"
-                            }`}
-                        >
-                            Select at least one option
-                        </span>
+                        {generatePasswordError && (
+                            <span
+                                id="hidden-text"
+                                className={`text-[--red] absolute -bottom-8 `}
+                            >
+                                Select at least one option
+                            </span>
+                        )}
                     </fieldset>
-                    <div className="flex justify-between bg-[--very-dark-grey] p-4">
+                    <div className="flex justify-between bg-[--very-dark-grey] p-4 mt-4">
                         <p>Strength</p>
                         <div className="flex gap-4">
                             <span id="strength" alia-live="polite">
@@ -219,9 +214,15 @@ export default function Home() {
                         onClick={generatePassword}
                         aria-controls="hidden-text"
                         aria-expanded={generatePasswordError}
-                        className="bg-[--neon-green] text-[--very-dark-grey] font-bold"
+                        className="bg-[--neon-green] text-[--very-dark-grey] py-4 font-bold flex justify-center items-center gap-4"
                     >
                         Generate
+                        <Image
+                            src="/images/icon-arrow-right.svg"
+                            alt=""
+                            width={12}
+                            height={12}
+                        />
                     </Button>
                 </div>
             </div>
