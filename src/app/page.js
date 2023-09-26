@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import generator from "generate-password-ts";
 import TextContainer from "@/components/TextContainer";
 import FormControls from "@/components/FormControls";
@@ -28,10 +28,11 @@ export default function Home() {
     const [isSymbols, setIsSymbols] = useState(false);
     const [strength, setStrength] = useState("Too weak!");
     const [state, setState] = useState({ ...initialState, tooWeak: true });
+    const [generatePasswordError, setGeneratePasswordError] = useState(false);
 
     const generatePassword = () => {
         if (!isLowerCase && !isUpperCase && !isNumbers && !isSymbols) {
-            return console.log("make one selection");
+            return setGeneratePasswordError(true);
         }
         const pwd = generator.generate({
             length: length,
@@ -40,6 +41,7 @@ export default function Home() {
             numbers: isNumbers,
             symbols: isSymbols,
         });
+        setGeneratePasswordError(false);
         setText(pwd);
     };
 
@@ -76,6 +78,44 @@ export default function Home() {
     const updateText = (evt) => {
         setText(evt.target.value);
     };
+
+    const firstBar = () => {
+        return state.tooWeak
+            ? "bg-[--red] border-[--red]"
+            : state.weak
+            ? "bg-[--orange] border-[--orange]"
+            : state.medium
+            ? "bg-[--yellow] border-[--yellow]"
+            : "bg-[--neon-green] border-[--neon-green]";
+    };
+
+    const secondBar = () => {
+        return state.tooWeak
+            ? "bg-[transparent] border-white"
+            : state.weak
+            ? "bg-[--orange] border-[--orange]"
+            : state.medium
+            ? "bg-[--yellow] border-[--yellow]"
+            : "bg-[--neon-green] border-[--neon-green]";
+    };
+
+    const thirdBar = () => {
+        return state.tooWeak || state.weak
+            ? "bg-[transparent] border-white"
+            : state.medium
+            ? "bg-[--yellow] border-[--yellow]"
+            : "bg-[--neon-green] border-[--neon-green]";
+    };
+
+    const fourthBar = () => {
+        return state.tooWeak || state.weak || state.medium
+            ? "bg-[transparent] border-white"
+            : "bg-[--neon-green] border-[--neon-green]";
+    };
+
+    useEffect(() => {
+        console.log(generatePasswordError);
+    }, [generatePasswordError]);
 
     return (
         <Box
@@ -139,6 +179,16 @@ export default function Home() {
                             onChange={() => setIsSymbols(!isSymbols)}
                             label="Include Symbols"
                         />
+                        <span
+                            id="hidden-text"
+                            className={`text-[--red] ${
+                                !generatePasswordError
+                                    ? "hidden"
+                                    : "inline-block"
+                            }`}
+                        >
+                            Select at least one option
+                        </span>
                     </fieldset>
                     <div className="flex justify-between bg-[--very-dark-grey] p-4">
                         <p>Strength</p>
@@ -148,48 +198,17 @@ export default function Home() {
                             </span>
                             <div className="flex gap-2">
                                 <div
-                                    aria-live="polite"
-                                    className={`w-2.5 h-7 border-2 ${
-                                        state.tooWeak
-                                            ? "bg-[--red] border-[--red]"
-                                            : state.weak
-                                            ? "bg-[--orange] border-[--orange]"
-                                            : state.medium
-                                            ? "bg-[--yellow] border-[--yellow]"
-                                            : "bg-[--neon-green] border-[--neon-green]"
-                                    } `}
+                                    className={`w-2.5 h-7 border-2 ${firstBar()} `}
+                                ></div>
+                                <div
+                                    className={`w-2.5 h-7 border-2 ${secondBar()}`}
+                                ></div>
+                                <div
+                                    className={`w-2.5 h-7 border-2  ${thirdBar()}`}
                                 ></div>
                                 <div
                                     aria-live="polite"
-                                    className={`w-2.5 h-7 border-2 ${
-                                        state.tooWeak
-                                            ? "bg-[transparent] border-white"
-                                            : state.weak
-                                            ? "bg-[--orange] border-[--orange]"
-                                            : state.medium
-                                            ? "bg-[--yellow] border-[--yellow]"
-                                            : "bg-[--neon-green] border-[--neon-green]"
-                                    }`}
-                                ></div>
-                                <div
-                                    aria-live="polite"
-                                    className={`w-2.5 h-7 border-2  ${
-                                        state.tooWeak || state.weak
-                                            ? "bg-[transparent] border-white"
-                                            : state.medium
-                                            ? "bg-[--yellow] border-[--yellow]"
-                                            : "bg-[--neon-green] border-[--neon-green]"
-                                    }`}
-                                ></div>
-                                <div
-                                    aria-live="polite"
-                                    className={`w-2.5 h-7 border-2  ${
-                                        state.tooWeak ||
-                                        state.weak ||
-                                        state.medium
-                                            ? "bg-[transparent] border-white"
-                                            : "bg-[--neon-green] border-[--neon-green]"
-                                    }`}
+                                    className={`w-2.5 h-7 border-2  ${fourthBar()}`}
                                 ></div>
                             </div>
                         </div>
@@ -198,6 +217,8 @@ export default function Home() {
                     <Button
                         variant="contained"
                         onClick={generatePassword}
+                        aria-controls="hidden-text"
+                        aria-expanded={generatePasswordError}
                         className="bg-[--neon-green] text-[--very-dark-grey] font-bold"
                     >
                         Generate
