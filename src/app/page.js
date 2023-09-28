@@ -59,6 +59,7 @@ export default function Home() {
         setcopyState(false);
     };
 
+    // update checkboxes
     const onChange = (evt) => {
         setLength(evt.target.value);
         if (evt.target.value < 6) {
@@ -76,28 +77,33 @@ export default function Home() {
         }
     };
 
+    // update textfield
     const updateText = (evt) => {
         setText(evt.target.value);
     };
 
     const firstBar = () => {
-        return state.tooWeak
-            ? "bg-[--red] border-[--red]"
-            : state.weak
-            ? "bg-[--orange] border-[--orange]"
-            : state.medium
-            ? "bg-[--yellow] border-[--yellow]"
-            : "bg-[--neon-green] border-[--neon-green]";
+        if (state.tooWeak) {
+            return "bg-[--red] border-[--red]";
+        } else if (state.weak) {
+            return "bg-[--orange] border-[--orange]";
+        } else if (state.medium) {
+            return "bg-[--yellow] border-[--yellow]";
+        } else {
+            return "bg-[--neon-green] border-[--neon-green]";
+        }
     };
 
     const secondBar = () => {
-        return state.tooWeak
-            ? "bg-[transparent] border-white"
-            : state.weak
-            ? "bg-[--orange] border-[--orange]"
-            : state.medium
-            ? "bg-[--yellow] border-[--yellow]"
-            : "bg-[--neon-green] border-[--neon-green]";
+        if (state.tooWeak) {
+            return "bg-[transparent] border-white";
+        } else if (state.weak) {
+            return "bg-[--orange] border-[--orange]";
+        } else if (state.medium) {
+            return "bg-[--yellow] border-[--yellow]";
+        } else {
+            return "bg-[--neon-green] border-[--neon-green]";
+        }
     };
 
     const thirdBar = () => {
@@ -212,7 +218,7 @@ export default function Home() {
                     <Button
                         variant="contained"
                         onClick={generatePassword}
-                        aria-controls="hidden-text"
+                        aria-controls="hidden-text password"
                         aria-expanded={generatePasswordError}
                         className="bg-[--neon-green] text-[--very-dark-grey] py-4 font-bold flex justify-center items-center gap-4"
                     >
