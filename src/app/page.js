@@ -126,7 +126,7 @@ export default function Home() {
             noValidate
             className="flex flex-col items-center justify-between m-4 w-full max-w-[33.75rem]"
         >
-            <h1 className="text-[--grey] font-bold text-base mb-4">
+            <h1 className="text-[--grey] font-bold text-base md:text-2xl my-8">
                 Password generator
             </h1>
             <div className="w-full flex flex-col gap-8">
@@ -141,10 +141,16 @@ export default function Home() {
                 </div>
                 <div className="w-full bg-[--dark-grey] flex flex-col gap-8 p-4">
                     <div className="grid grid-cols-6 gap-8">
-                        <label htmlFor="length" className="col-span-5">
+                        <label
+                            htmlFor="length"
+                            className="col-span-5 text-base md:text-lg"
+                        >
                             Character length
                         </label>
-                        <span aria-live="polite" className="justify-self-end">
+                        <span
+                            aria-live="polite"
+                            className="justify-self-end text-2xl md:text-[2rem]"
+                        >
                             {length}
                         </span>
 
@@ -192,9 +198,9 @@ export default function Home() {
                         )}
                     </fieldset>
                     <div className="flex justify-between bg-[--very-dark-grey] p-4 mt-4">
-                        <p>Strength</p>
+                        <p className="text-base md:text-lg">Strength</p>
                         <div className="flex gap-4">
-                            <span id="strength" alia-live="polite">
+                            <span id="strength" alia-live="polite" className="text-lg md:text-2xl">
                                 {strength}
                             </span>
                             <div className="flex gap-2">

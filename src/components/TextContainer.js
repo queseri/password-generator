@@ -6,7 +6,7 @@ function TextContainer({ text, updateText }) {
         <>
             <TextField
                 type="text"
-                className="bg-[--dark-grey] text-[white] w-full"
+                className="bg-[--dark-grey] text-[white] text-2xl md:text-[2rem] w-full"
                 value={text}
                 id="password"
                 variant="outlined"

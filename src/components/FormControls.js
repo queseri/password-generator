@@ -11,12 +11,12 @@ function FormControls({ id, name, checked, onChange, label }) {
                         id={id}
                         name={name}
                         checked={checked}
-                        onChange={onChange}
+                        onChange={onChange}                       
                         sx={{
                             color: "hsla(127, 100%, 82%, 1)",
                             "&.Mui-checked": {
                                 color: "hsla(127, 100%, 82%, 1)",
-                            },
+                            },                            
                         }}
                     />
                 }
