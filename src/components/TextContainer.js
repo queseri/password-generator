@@ -17,6 +17,14 @@ function TextContainer({ text, updateText }) {
                 //  error={text.length === 0}
                 InputProps={{
                     readOnly: true,
+                    style: {
+                        fontSize: {
+                            xs: "1.5rem",
+                            md: "2.5rem",
+                        },
+                        paddingBlock: "0.25rem",
+                       fontWeight: 900,
+                    },
                 }}
                 InputLabelProps={{
                     style: {
@@ -24,6 +32,7 @@ function TextContainer({ text, updateText }) {
                             text.length === 0
                                 ? "hsla(252, 9%, 53%, 1)"
                                 : "white",
+                        fontSize: "1.5rem",
                     },
                 }}
                 sx={{
