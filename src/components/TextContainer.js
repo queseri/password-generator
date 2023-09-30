@@ -16,14 +16,11 @@ function TextContainer({ text, updateText }) {
                 //  helperText={text.length === 0 && "Generate password first"}
                 //  error={text.length === 0}
                 InputProps={{
-                    readOnly: true,
+                    readOnly: true,                   
                     style: {
-                        fontSize: {
-                            xs: "1.5rem",
-                            md: "2.5rem",
-                        },
+                        fontSize: "1.5rem",
                         paddingBlock: "0.25rem",
-                       fontWeight: 900,
+                        fontWeight: 900,
                     },
                 }}
                 InputLabelProps={{

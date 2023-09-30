@@ -1,12 +1,5 @@
 import "./globals.css";
-import { JetBrains_Mono } from "next/font/google";
-
-const jetBrainsMono = JetBrains_Mono({
-    subsets: ["latin"],
-    preload: true,
-    variable: "--font-jet-brains-mono",
-    display: "swap",
-});
+import ThemeRegistry from "@/components/ThemeRegistry/ThemeRegistry";
 
 export const metadata = {
     title: "Password random generator",
@@ -16,7 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={jetBrainsMono.className}>{children}</body>
+            <body>               
+                <ThemeRegistry>{children}</ThemeRegistry>
+            </body>
         </html>
     );
 }

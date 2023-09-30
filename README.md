@@ -65,6 +65,10 @@ The screenshots where created using [Mobile simulator extension](https://chrome.
 
 ### What I learned
 
+#### Customizing Material-ui font with Next js
+
+[Overriding Material-ui font settings](https://github.com/mui/material-ui/blob/master/examples/material-ui-nextjs/src/components/ThemeRegistry/ThemeRegistry.js)
+
 ### Customising the input range `element
 
 [create-custom-range-input-consistent-browsers](https://www.smashingmagazine.com/2021/12/create-custom-range-input-consistent-browsers/)
