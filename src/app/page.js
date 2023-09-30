@@ -5,13 +5,7 @@ import Image from "next/image";
 import generator from "generate-password-ts";
 import TextContainer from "@/components/TextContainer";
 import FormControls from "@/components/FormControls";
-import {
-    Button,
-    Box,
-    CssBaseline,
-    createTheme,
-    ThemeProvider,
-} from "@mui/material";
+import { Button, Box, createTheme, ThemeProvider } from "@mui/material";
 import AlertMessage from "@/components/AlertMessage";
 import CopyToClipboardText from "@/components/CopyToClipboardText";
 import SliderContainer from "@/components/SliderContainer";
@@ -31,7 +25,7 @@ let theme = createTheme({
 theme.typography.button = {
     fontFamily: jetBrainsMono,
     textTransform: "uppercase",
-    fontWeight: 700,   
+    fontWeight: 700,
 };
 
 export default function Home() {
