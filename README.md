@@ -35,15 +35,7 @@ Users should be able to:
 
 The screenshots where created using [Mobile simulator extension](https://chrome.google.com/webstore/detail/simulateur-mobile/ckejmhbmlajgoklhgbapkiccekfoccmk?hl=en-US)
 
-- Huawei ![Huawei h30 PRO](src/assets/huaweih30pro.png)
-- Mobile ![Mobile](src/assets/mobile.png)
-- Oppo ![Oppo Find X3 PRO](src/assets/oppo.png)
-- Samsung ![Samsung Galaxy s20](src/assets/s20.png)
-- Iphone 5 ![Iphone 5](src/assets/iphone5.png)
-- Iphone 12 ![Iphone 12](src/assets/iphone12.png)
-- Ipad ![Ipad](src/assets/ipad.png)
-- Iphone Macbook ![Macbook Air](src/assets/mac.png)
-- Microsoft ![Microsoft Surface duo](src/assets/microsoft-duo.png)
+ ![Huawei h30 PRO](src/assets/huaweih30pro.png) Mobile ![Mobile](src/assets/mobile.png) ![Oppo Find X3 PRO](src/assets/oppo.png) ![Samsung Galaxy s20](src/assets/s20.png) ![Iphone 5](src/assets/iphone5.png) ![Iphone 12](src/assets/iphone12.png) ![Ipad](src/assets/ipad.png) ![Macbook Air](src/assets/mac.png) ![Microsoft Surface duo](src/assets/microsoft-duo.png)
 
 ### Links
 
