@@ -5,7 +5,7 @@ function FormControls({ id, name, checked, onChange, label }) {
     return (
         <>
             <FormControlLabel
-                className="flex justify-start gap-4"
+                className="flex justify-start gap-4 text-[--almost-white]"
                 control={
                     <Checkbox
                         id={id}

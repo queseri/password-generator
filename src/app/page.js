@@ -144,13 +144,13 @@ export default function Home() {
                         <div className="grid grid-cols-6 gap-8">
                             <label
                                 htmlFor="length"
-                                className="col-span-5 text-base md:text-lg"
+                                className="col-span-5 text-base md:text-lg text-[--almost-white]"
                             >
                                 Character length
                             </label>
                             <span
                                 aria-live="polite"
-                                className="justify-self-end text-2xl md:text-[2rem]"
+                                className="justify-self-end text-2xl md:text-[2rem] text-[--almost-white]"
                             >
                                 {length}
                             </span>
@@ -202,12 +202,14 @@ export default function Home() {
                             )}
                         </fieldset>
                         <div className="flex justify-between bg-[--very-dark-grey] p-4 mt-4">
-                            <p className="text-base md:text-lg">Strength</p>
+                            <p className="text-base md:text-lg text-[--almost-white]">
+                                Strength
+                            </p>
                             <div className="flex gap-4">
                                 <span
                                     id="strength"
                                     alia-live="polite"
-                                    className="text-lg md:text-2xl"
+                                    className="text-lg md:text-2xl text-[--almost-white]"
                                 >
                                     {strength}
                                 </span>
