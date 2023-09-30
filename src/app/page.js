@@ -236,7 +236,7 @@ export default function Home() {
                             onClick={generatePassword}
                             aria-controls="hidden-text password"
                             aria-expanded={generatePasswordError}
-                            className="bg-[--neon-green] text-[--very-dark-grey] py-4 font-bold flex justify-center items-center gap-4 text-base md:text-lg"
+                            className="bg-[--neon-green] text-[--very-dark-grey] !py-4 font-bold flex justify-center items-center gap-4 text-base md:text-lg"
                         >
                             Generate
                             <Image

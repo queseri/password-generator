@@ -18,7 +18,7 @@ const theme = createTheme({
 theme.typography.button = {
     fontFamily: jetBrainsMono.style.fontFamily,
     textTransform: "uppercase",
-    fontWeight: 700,
+    fontWeight: 700,   
 };
 
 export default theme;
