@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { jetBrainsMono } from "./layout";
+// import { jetBrainsMono } from "./layout";
 import Image from "next/image";
 import generator from "generate-password-ts";
 import TextContainer from "@/components/TextContainer";
@@ -18,12 +18,12 @@ let theme = createTheme({
         //  },
     },
     typography: {
-        fontFamily: jetBrainsMono,
+        fontFamily: "--font-jet-brains-mono",
     },
 });
 
 theme.typography.button = {
-    fontFamily: jetBrainsMono,
+    fontFamily:  "--font-jet-brains-mono",
     textTransform: "uppercase",
     fontWeight: 700,
 };

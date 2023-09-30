@@ -1,7 +1,7 @@
 import "./globals.css";
 import { JetBrains_Mono } from "next/font/google";
 
-export const jetBrainsMono = JetBrains_Mono({
+const jetBrainsMono = JetBrains_Mono({
     subsets: ["latin"],
     preload: true,
     variable: "--font-jet-brains-mono",
