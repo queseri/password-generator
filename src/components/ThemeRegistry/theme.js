@@ -1,5 +1,5 @@
 import { JetBrains_Mono } from "next/font/google";
-import { ThemeProvider, createTheme } from "@mui/material";
+import { createTheme } from "@mui/material";
 
 const jetBrainsMono = JetBrains_Mono({
     subsets: ["latin"],

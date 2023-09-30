@@ -127,7 +127,7 @@ export default function Home() {
                 noValidate
                 className="flex flex-col items-center justify-between w-full"
             >
-                <h1 className="text-[--grey] font-bold text-base md:text-2xl my-8">
+                <h1 className="text-[--grey] font-bold text-base md:text-2xl mb-4">
                     Password generator
                 </h1>
                 <div className="w-full flex flex-col gap-8">
