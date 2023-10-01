@@ -186,6 +186,10 @@ export default function RootLayout({ children }) {
 
 ![Vercel speed insights](src/assets/vercel-speed-insights.png)
 
+### Page insights
+
+[Page insights](https://pagespeed.web.dev/analysis/https-password-generator-blush-five-vercel-app/dmb7tefc0k?form_factor=desktop)
+
 ### Continued development
 
 ### Useful resources
