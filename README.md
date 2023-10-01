@@ -178,6 +178,10 @@ export default function RootLayout({ children }) {
 
 ![Lighthouse score](src/assets/password-lighthouse.png)
 
+### Vercel speed insights
+
+![Vercel speed insights](src/assets/vercel-speed-insights.png)
+
 ### Continued development
 
 ### Useful resources
