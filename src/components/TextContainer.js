@@ -12,9 +12,7 @@ function TextContainer({ text, updateText }) {
                 variant="outlined"
                 label="Password"
                 aria-live="polite"
-                tabIndex="-1"
-                //  helperText={text.length === 0 && "Generate password first"}
-                //  error={text.length === 0}
+                tabIndex="-1"              
                 InputProps={{
                     readOnly: true,                   
                     style: {
