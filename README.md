@@ -174,6 +174,10 @@ export default function RootLayout({ children }) {
 
 [React copy to clopboard](https://www.scaler.com/topics/react/react-copy-to-clipboard/)
 
+### Lighthouse score
+
+![Lighthouse score](src/assets/password-lighthouse.png)
+
 ### Continued development
 
 ### Useful resources
