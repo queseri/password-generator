@@ -164,6 +164,10 @@ export default function RootLayout({ children }) {
 }
 ```
 
+### Adding themeColor and other metadata
+
+[add themeColor to the head element](https://nextjs.org/docs/app/api-reference/functions/generate-metadata#themecolor)
+
 [Overriding Material-ui font settings](https://github.com/mui/material-ui/blob/master/examples/material-ui-nextjs/src/components/ThemeRegistry/ThemeRegistry.js)
 
 ### Customising the input range `element

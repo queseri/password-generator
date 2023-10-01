@@ -8,6 +8,7 @@ export const metadata = {
     keywords: ["Next.js", "React", "Tailwind"],
     author: { name: "Chamu Mutezva" },
     colorScheme: "dark",
+    themeColor: "black",
     creator: "Chamu Mutezva",
     publisher: "Chamu Mutezva",
     manifest: "/manifest.json",
