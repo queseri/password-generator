@@ -11,7 +11,7 @@ function TextContainer({ text, updateText }) {
                 id="password"
                 variant="outlined"
                 label="Password"
-                aria-live="polite"
+                aria-live="assertive"
                 tabIndex="-1"              
                 InputProps={{
                     readOnly: true,                   

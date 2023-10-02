@@ -195,6 +195,7 @@ export default function Home() {
                             {generatePasswordError && (
                                 <span
                                     id="hidden-text"
+                                    aria-live="polite"
                                     className={`text-[--red] absolute -bottom-8 `}
                                 >
                                     Select at least one option
