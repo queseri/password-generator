@@ -19,17 +19,20 @@ export const metadata = {
         canomical: "/",
     },
     twitter: {
-        card: "summary_large_image",
+        card: "summary",
         title: "Password random generator",
-        description: "Generate random passwords",
-        image: "",
+        site: "@ChamuMutezva",
+        description: "An application to generate random passwords",
+        image: "./images/favicon-16x16.png",
     },
     openGraph: {
-        url: "https://password-generator-queseri.vercel.app/",
-        type: "website",
-        title: "Password random generator",
-        description: "Generate random passwords",
-        image: "",
+        facebook: {
+            url: "https://password-generator-queseri.vercel.app/",
+            type: "website",
+            title: "Password random generator",
+            description: "An application to generate random passwords",
+            image: "./images/favicon-16x16.png",
+        },
     },
 };
 
